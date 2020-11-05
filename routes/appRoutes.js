@@ -6,7 +6,7 @@ const router = Router();
 
 // get routes
 router.get('/', appController.homepage_get);
-// router.get('/:short_url_id', appController.longUrl_get);
+router.get('/:short_url_id', appController.longUrl_get);
 
 
 // post routes
