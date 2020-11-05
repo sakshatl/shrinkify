@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Let's Shrinkify</h1>
+  <form id="form">
+    <label for="url">Enter a long url</label>
+    <input name="long" type="text" />
+    <button type="submit">Shrink</button>
+  </form>
+
+  <script>
+    const form = document.querySelector('#form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let long = e.target['long'].value;
+      console.log(long);
+
+    })
+  </script>
+</body>
+</html>
