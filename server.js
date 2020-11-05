@@ -9,7 +9,7 @@ const config = require('./utils/config');
 const app = express();
 
 // middlewares
-// app.use(express.static('public'));
+app.use(express.static('public'));
 app.use(express.json( { extended: false }));
 
 // set view engine

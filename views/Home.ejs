@@ -1,38 +1,41 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Let's Shrinkify</h1>
-  <form id="form">
-    <label for="url">Enter a long url</label>
-    <input name="long" type="text" />
-    <button type="submit">Shrink</button>
-  </form>
+<%- include('partials/header'); %>
+  
+  <div class="home__hero">
+    <div class="row container">
+      <div class="col m6 s12 home__heroBody">
+        <h1 class="deep-purple-text text-lighten-1">
+          Sharing URLs, simplified!
+        </h1>
+        <p>
+          Convert complex URLs into simpler ones that can be easily shared over the internet
+        </p>
+
+        <form id="home__heroForm" class="home__heroForm" action="">
+          <input name="long-url" type="text" class="browser-default" placeholder="Place a URL to shrink"/>
+          <button type="submit" class="browser-default">Shrink</button>
+        </form>
+      </div>
+      <div class="col m5 offset-m1 s12 home__heroImage">
+        <div class="card">
+          <div class="card-content">
+            <img class="responsive-img" src="/img/banner-background.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
-    const form = document.querySelector('#form');
-    form.addEventListener('submit', (e) => {
+    const heroForm = document.querySelector('#home__heroForm');
+
+    heroForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      let long = e.target['long'].value;
-      console.log(long);
-      let data = {
-        long
-      };
-
-      fetch('http://localhost:5000/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(data)
-      })
-      .then((res) => console.log('response'))
-      .then((data) => console.log(data));
-
+      let longUrl = e.target['long-url'].value;
+      console.log(longUrl);
+      
+      heroForm.reset();
     })
+
   </script>
-</body>
-</html>
+
+<%- include('partials/footer'); %>
